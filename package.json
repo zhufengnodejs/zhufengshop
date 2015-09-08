@@ -1,0 +1,25 @@
+{
+  "name": "zhufengshop",
+  "version": "1.0.0",
+  "description": "这是一个珠峰网上商城的例子",
+  "main": "index.js",
+  "scripts": {
+    "test": "gulp test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://www.github.com/zhufengnodejs/zhufengshop"
+  },
+  "keywords": [
+    "shop",
+    "zhufeng",
+    "node",
+    "express",
+    "bower"
+  ],
+  "author": "zhangrenyang",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.13.3"
+  }
+}
