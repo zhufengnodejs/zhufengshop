@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <title></title>
     <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.css"/>
+    <style>
+        body{
+            margin-top: 70px;
+        }
+    </style>
 </head>
 <body>
 <nav class="navbar navbar-default navbar-fixed-top" role="navigation" ng-controller="NavBarCtrl">
@@ -33,6 +38,12 @@
         }).when('/home',{
             templateUrl:'pages/home.html',
             controller:'HomeCtrl'
+        }).when('/users/reg',{
+            templateUrl:'pages/user/reg.html',
+            controller:'RegCtrl'
+        }).when('/users/login',{
+            templateUrl:'pages/user/login.html',
+            controller:'LoginCtrl'
         }).otherwise({
             redirectTo:'/'
         });
@@ -41,8 +52,20 @@
         $scope.title = '珠峰商城';
     });
 
-    app.controller('NavBarCtrl',function(){
+    app.controller('NavBarCtrl',function($scope){
+        $scope.title = '导航';
+    });
 
+    app.controller('RegCtrl',function($scope){
+        $scope.title = '注册';
+        $scope.save = function(){
+            console.log('saving');
+        }
+
+    });
+
+    app.controller('LoginCtrl',function($scope){
+        $scope.title = '登陆';
     });
 </script>
 </html>
