@@ -1,11 +1,3 @@
-mkdir zhufengshop
-cd zhufengshop
-npm init
-ls
-touch .bowerrc
-bower init
-bower install bootstrap
-bower install angular angular-route --save
 doskey /history >> cmd.log
 mkdir zhufengshop
 cd zhufengshop
@@ -15,7 +7,16 @@ touch .bowerrc
 bower init
 bower install bootstrap
 bower install angular angular-route --save
-doskey /history >> cmd.log
+
+mkdir zhufengshop
+cd zhufengshop
+npm init
+ls
+touch .bowerrc
+bower init
+bower install bootstrap
+bower install angular angular-route --save
+
 bower install bootstrap --save
 npm install express --save
 git init
@@ -24,4 +25,3 @@ git push -u origin master
 git add .
 git commit -m"初始化项目"
 git push -u origin master
-doskey /history >> cmd.log
