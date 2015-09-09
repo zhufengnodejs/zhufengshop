@@ -56,16 +56,35 @@
         $scope.title = '导航';
     });
 
-    app.controller('RegCtrl',function($scope){
+    app.controller('RegCtrl',function($scope,$http,$location){
         $scope.title = '注册';
         $scope.save = function(){
-            console.log('saving');
+            $http({
+                url:'/users/reg',
+                method:'POST',
+                data:$scope.user
+            }).success(function(user){
+                $location.path('/users/login');
+            }).error(function(data){
+                $location.path('/users/reg');
+            });
         }
 
     });
 
-    app.controller('LoginCtrl',function($scope){
+    app.controller('LoginCtrl',function($scope,$location,$http){
         $scope.title = '登陆';
+        $scope.save = function(){
+            $http({
+                url:'/users/login',
+                method:'POST',
+                data:$scope.user
+            }).success(function(user){
+                $location.path('/home');
+            }).error(function(data){
+                //$location.path('/users/login');
+            });
+        }
     });
 </script>
 </html>
