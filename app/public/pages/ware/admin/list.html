@@ -1,0 +1,86 @@
+<div class="col-md-12">
+    <div class="panel panel-default">
+        <div class="panel-heading clearfix">
+            <div class="pull-left">
+                <button class="btn btn-sucess" add-wares>增加</button>
+                <button class="btn btn-danger">批量删除</button>
+            </div>
+            <div class="pull-right">
+                <input type="text" name="keyword" ng-model="keyword" ng-change="filter()"/>
+            </div>
+        </div>
+        <div class="panel-body">
+            <table class="table table-striped table-responsive">
+                <thead>
+                    <tr>
+                        <td><input type="checkbox" id="selectAllWares"/></td>
+                        <td>名称</td>
+                        <td>价格</td>
+                        <td>图片</td>
+                        <td class="text-center">操作</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="ware in wares">
+                        <td><input type="checkbox" data-id="{{ware._id}}" name="chkItem"/></td>
+                        <td>{{ware.name}}</td>
+                        <td>{{ware.price}}</td>
+                        <td><img style="width:50px;height:50px" ng-src="{{ware.imgSrc}}" alt="{{ware.name}}"/></td>
+                        <td class="text-center">
+                            <button class="btn btn-primary">编辑</button>
+                            <button class="btn btn-success">查看</button>
+                            <button class="btn btn-danger">删除</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="panel-footer text-center">
+            <ul class="pagination pagination-sm">
+                <li >上一页</li>
+                <li ng-repeat="page in pages"></li>
+                <li >下一页</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="addDialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button class="close" data-dismiss="modal">&times;</button>
+                <h4 modal-title>增加商品</h4>
+            </div>
+            <div class="modal-body">
+                <form action="" class="form-horizontal">
+                    <div class="form-group">
+                        <label for="name" class="col-sm-2 control-label">名称</label>
+                        <div class="col-sm-10">
+                            <input type="text" id="name" class="form-control" ng-model="ware.name" placeholder="名称"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="price" class="col-sm-2 control-label">价格</label>
+                        <div class="col-sm-10">
+                            <input type="text" id="price" class="form-control" ng-model="ware.price" placeholder="价格"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="imgSrc" class="col-sm-2 control-label">图片</label>
+                        <div class="col-sm-5">
+                            <input file-model type="file" id="imgSrc" class="form-control"  placeholder="图片"/>
+                        </div>
+                        <div class="col-sm-5">
+                            <img src="{{ware.imgSrc}}" id="imgPreview" style="width:100px;height:100px;margin:0 auto;display:block"/>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-success" ng-click="save()" data-dismiss="modal">确定</button>
+                <button class="btn btn-default" data-dismiss="modal">取消</button>
+            </div>
+        </div>
+    </div>
+</div>

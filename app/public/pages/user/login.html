@@ -1,7 +1,7 @@
 <div class="col-md-12">
     <div class="panel panel-default">
         <div class="panel-heading">登陆</div>
-        <form action="" novalidate role="form" name="userform" class="form-horizontal" ng-submit="save()">
+        <form action="/" novalidate role="form" method="post" name="userform" class="form-horizontal" >
             <div class="panel-body">
                 <div class="form-group row" ng-class="{'has-error':userform.username.$dirty && userform.username.$invalid}">
                     <label for="username" class="control-label col-sm-offset-2 col-sm-2 text-right">用户</label>
@@ -29,7 +29,7 @@
             </div>
             <div class="panel-footer clearfix">
                 <div class="col-sm-offset-5 col-sm-1">
-                    <button type="submit" class="btn btn-lg btn-primary btn-enter" ng-disabled="userform.$invalid">登陆</button>
+                    <button type="button" ng-click="save()" class="btn btn-lg btn-primary btn-enter" ng-disabled="userform.$invalid">登陆</button>
                 </div>
             </div>
         </form>
