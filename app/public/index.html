@@ -135,7 +135,13 @@
         $scope.filter = function(){
 
         }
-        $scope.wares = [{name:'iphone4',price:4,imgSrc:''}];
+        $scope.wares = [];
+        $http({
+            url:'/wares/list',
+            method:'GET'
+        }).success(function(wares){
+            $scope.wares =wares;
+        });
         $scope.pages = [1,2,3];
         $scope.getFile = function(){
             var s = fileReader.readAsDataUrl($scope.file,$scope);
@@ -143,7 +149,22 @@
                         $scope.ware.imgSrc = result;
             })
         }
-
+        $scope.save = function(){
+            var fd = new FormData();
+            angular.forEach($scope.ware,function(val,key){
+                fd.append(key,val);
+            });
+            var options = {
+              url:'/wares/add',
+              method:'POST',
+              data:fd,
+              headers:{'Content-Type':undefined},
+              transformRequest:angular.identity
+            };
+            $http(options).success(function(ware){
+                $scope.wares.push(ware);
+            });
+        }
     });
 
     app.directive('addWares',function(){
